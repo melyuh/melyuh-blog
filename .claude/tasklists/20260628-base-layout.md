@@ -13,7 +13,7 @@
 - [x] `src/pages/index.astro` を BaseLayout 使用に更新
 - [x] FOUC修正（`BaseLayout.astro` の `<head>` にインラインスクリプト追加）
 - [x] `Footer.astro` の外部リンクを `rel="noopener noreferrer"` に変更
-- [ ] 上記修正をコミットしてPRマージ
+- [x] 上記修正をコミットしてPRマージ
 
 ## 完了条件
 

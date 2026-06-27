@@ -18,13 +18,12 @@
 
 | ブランチ | 状態 | 内容 |
 |---|---|---|
-| `feat/base-layout` | オープン（マージ待ち） | BaseLayout・Header・Footer・i18n実装。FOUC修正・noreferrer追加済み |
+| `feat/base-layout` | ✅ マージ済み | BaseLayout・Header・Footer・i18n実装 |
 
 ## 次に着手する作業
 
-1. `feat/base-layout` のPRをマージ
-2. コンテンツ管理（`src/content/config.ts`・サンプル記事）
-3. BLOGページ実装
+1. コンテンツ管理（`src/content/config.ts`・サンプル記事）
+2. BLOGページ実装
 
 ---
 
@@ -46,10 +45,10 @@
 
 | 項目 | 状態 | ブランチ / PR | 備考 |
 |---|---|---|---|
-| `src/i18n/ui.ts`（UIテキスト定数） | 🔧 | feat/base-layout | |
-| `BaseLayout.astro` | 🔧 | feat/base-layout | |
-| `Header.astro`（ナビ・テーマ切替） | 🔧 | feat/base-layout | |
-| `Footer.astro` | 🔧 | feat/base-layout | |
+| `src/i18n/ui.ts`（UIテキスト定数） | ✅ | — | |
+| `BaseLayout.astro` | ✅ | — | |
+| `Header.astro`（ナビ・テーマ切替） | ✅ | — | |
+| `Footer.astro` | ✅ | — | |
 
 ### ページ
 
@@ -76,7 +75,7 @@
 | OGP メタタグ | ⬜ | LinkedInシェア対応 |
 | RSSフィード | ⬜ | `/rss.xml` |
 | Pagefind 検索 | ⬜ | ビルド時インデックス生成 |
-| ダーク/ライトモード | 🔧 | feat/base-layout |
+| ダーク/ライトモード | ✅ | |
 
 ---
 

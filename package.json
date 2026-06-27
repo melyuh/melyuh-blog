@@ -16,7 +16,7 @@
     "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm biome check --staged"
+    "pre-commit": "staged=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\\.(js|ts|jsx|tsx|astro|json|jsonc)$'); [ -z \"$staged\" ] || pnpm biome check --staged"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
