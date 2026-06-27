@@ -10,12 +10,11 @@ cd melyuh-blog
 # Node.js / pnpm のバージョンをインストール
 mise install
 
-# 依存パッケージをインストール
+# 依存パッケージをインストール（prepare により simple-git-hooks も自動セットアップ）
 pnpm install
-
-# simple-git-hooks を有効化（package.json の prepare スクリプトが実行される）
-pnpm prepare
 ```
+
+> `pnpm install` 実行時に `ERR_PNPM_IGNORED_BUILDS` が出た場合は `pnpm-workspace.yaml` の `allowBuilds` を確認すること。
 
 ## 2. 開発コマンド
 
@@ -25,7 +24,7 @@ pnpm prepare
 | `pnpm build` | 本番用静的ファイルを生成（+ Pagefindインデックス生成） |
 | `pnpm preview` | ビルド結果をローカルでプレビュー |
 | `pnpm lint` | Biomeでコードをチェック |
-| `pnpm format` | Biomeでコードを整形 |
+| `pnpm format` | Biomeでコードを整形・lint自動修正（`biome check . --write`） |
 | `pnpm check` | TypeScript型チェック + Biome lint/format を一括実行 |
 
 ## 3. ディレクトリ構成
@@ -34,7 +33,12 @@ pnpm prepare
 
 ```
 melyuh-blog/
-├── .claude/                # ドキュメント（CLAUDE.md + docs/）
+├── .claude/                # Claude関連ファイル一式
+│   ├── CLAUDE.md           # セッションルール・プロトコル
+│   ├── progress.md         # 実装進捗
+│   ├── specs/              # 永続仕様ドキュメント（01-04）
+│   ├── tasklists/          # 作業単位タスク管理
+│   └── commands/           # カスタムスキル定義
 ├── .github/workflows/      # GitHub Actions
 ├── src/
 │   ├── components/         # Astroコンポーネント
@@ -111,9 +115,7 @@ content: WSL環境構築の記事を追加
 
 | チェック | 内容 |
 |---|---|
-| Biome lint | コードの品質チェック |
-| Biome format | コードの整形チェック |
-| TypeScript型チェック | 型エラーがないか確認 |
+| Biome check | コードの品質・整形チェック（`pnpm biome check --staged`） |
 
 ## 8. 記事の追加フロー
 
@@ -136,7 +138,8 @@ content: WSL環境構築の記事を追加
 
 PRを作成する前に以下を確認すること。
 
-- [ ] 変更内容に応じた `.claude/docs/` のドキュメントが更新されている
+- [ ] `.claude/tasklists/` の該当ファイルのチェックボックスが更新されている
+- [ ] 変更内容に応じた `.claude/specs/` のドキュメントが更新されている
 - [ ] `pnpm check` がエラーなく通る
 - [ ] `pnpm build` がエラーなく通る
 - [ ] `pnpm preview` で表示を目視確認した
