@@ -1,0 +1,46 @@
+---
+import { ui } from "../i18n/ui";
+
+const nav = [
+  { label: ui.nav.home, href: "/" },
+  { label: ui.nav.blog, href: "/blog" },
+  { label: ui.nav.works, href: "/works" },
+  { label: ui.nav.profile, href: "/profile" },
+];
+---
+
+<header class="border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="/" class="font-bold text-sm">{ui.site.name}</a>
+    <nav class="flex items-center gap-6">
+      {nav.map(({ label, href }) => (
+        <a href={href} class="text-sm hover:text-cyan-600 dark:hover:text-cyan-400">
+          {label}
+        </a>
+      ))}
+      <button id="theme-toggle" aria-label="テーマ切替" class="text-sm">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("theme-toggle")!;
+  const html = document.documentElement;
+
+  const apply = (dark: boolean) => {
+    html.classList.toggle("dark", dark);
+    toggle.textContent = dark ? "☀️" : "🌙";
+  };
+
+  apply(
+    localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches),
+  );
+
+  toggle.addEventListener("click", () => {
+    const dark = !html.classList.contains("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    apply(dark);
+  });
+</script>
