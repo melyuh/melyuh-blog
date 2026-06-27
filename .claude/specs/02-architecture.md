@@ -11,13 +11,14 @@ melyuh-blogはAstroによるSSG（静的サイト生成）で構築し、AWS S3 
 |---|---|---|
 | フレームワーク | Astro（SSGモード） | pnpm |
 | 言語 | TypeScript | — |
-| スタイリング | TailwindCSS | pnpm |
+| スタイリング | TailwindCSS v4 | pnpm |
 | コンテンツ | MDX | pnpm（@astrojs/mdx） |
 | 検索 | Pagefind | pnpm |
 | パッケージ管理 | pnpm | mise |
 | ランタイム | Node.js | mise |
-| Lint / Format | Biome | pnpm（devDependency） |
+| Lint / Format | Biome v2 | pnpm（devDependency） |
 | pre-commit | simple-git-hooks | pnpm（devDependency） |
+| 型チェック | @astrojs/check + typescript | pnpm（devDependency） |
 | IaC | Terraform | グローバルインストール |
 | インフラ | AWS S3 + CloudFront | — |
 | CI/CD | GitHub Actions | — |
@@ -118,7 +119,7 @@ flowchart LR
 | Astro | 静的ブログに特化。ゼロJSデフォルトで高速。MDX対応 |
 | TailwindCSS | 業界標準。Astroとの相性◎。CSS経験が少なくても書きやすい |
 | Pagefind | 静的サイト向け検索。サーバー不要でS3対応 |
-| Biome | ESLint+Prettierを1ツールで代替。高速。`rc-infra` と統一 |
+| Biome | ESLint+Prettierを1ツールで代替。高速 |
 | mise | エディタ非依存の軽量バージョン管理。Zed・VS Code・Neovim問わず動作 |
 | AWS S3 + CloudFront | AWSおよびIaCの理解深化のためあえて採用 |
 | GitHub Actions | デプロイ自動化の経験を積む。「CI/CDを構築した」という実績になる |
