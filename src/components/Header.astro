@@ -11,7 +11,11 @@ const nav = [
 
 <header class="border-b border-gray-200 dark:border-gray-700">
   <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-    <a href="/" class="font-bold text-sm">{ui.site.name}</a>
+    <a href="/" class="flex items-center gap-4">
+      <img src="/melyuh_lightmode.png" alt="" class="h-8 block dark:hidden" />
+      <img src="/melyuh_darkmode.png" alt="" class="h-8 hidden dark:block" />
+      <span class="font-bold text-sm">{ui.site.name}</span>
+    </a>
     <nav class="flex items-center gap-6">
       {nav.map(({ label, href }) => (
         <a href={href} class="text-sm hover:text-cyan-600 dark:hover:text-cyan-400">

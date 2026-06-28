@@ -1,1 +1,47 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-base: hsla(225, 15%, 14%, 1);
+  --color-bg-surface: hsla(225, 15%, 18%, 1);
+  --color-accent: #26c6da;
+  --font-sans: "Noto Sans JP", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* prose content（記事本文）のテーブルスタイル */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1em;
+}
+
+.prose table th {
+  background: none;
+  font-weight: bold;
+  border: none;
+  border-bottom: 2px solid var(--color-accent);
+  padding: 0.6em 1em;
+  text-align: left;
+}
+
+.prose table td {
+  border: none;
+  padding: 0.6em 1em;
+}
+
+.prose table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prose table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.prose table tbody tr:nth-child(even) {
+  background-color: var(--color-bg-surface);
+}
+
+.prose table tbody tr:hover {
+  background-color: rgba(38, 198, 218, 0.08);
+}
